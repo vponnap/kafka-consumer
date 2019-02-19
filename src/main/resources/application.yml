@@ -1,0 +1,15 @@
+server:
+  port: 9000
+kafka:
+  bootstrap:
+    servers:   localhost:9092
+    cluster:   wn0-devdik.waqq0sav5qee5crkuqcifcnjtf.dx.internal.cloudapp.net:9092,
+               wn1-devdik.waqq0sav5qee5crkuqcifcnjtf.dx.internal.cloudapp.net:9092,
+               wn2-devdik.waqq0sav5qee5crkuqcifcnjtf.dx.internal.cloudapp.net:9092
+  consumer:
+     topic: events,test,demand-impact-dev.events.topic
+     #topic: demand-impact-dev.events.topic
+     auto-offset-reset: earliest
+     group:
+      id:
+       config: test-consumer-group
