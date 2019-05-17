@@ -13,14 +13,14 @@ import org.springframework.stereotype.Component;
   private final Logger logger = LoggerFactory.getLogger(KafkaReceiver.class);
    
    @Value("${kafka.consumer.topic}")
-   //private String[] topics;
-	private String topics;
+    private String[] topics;
+	//private String topics;
    
    
-   @KafkaListener(topics = "#{'${kafka.consumer.topic}'.split(',')}", groupId = "${kafka.consumer.group.id.config}")
-   public void consumerTopics(String message, @Header(KafkaHeaders.RECEIVED_TOPIC) String topics)
+     @KafkaListener(topics = "#{'${kafka.consumer.topic}'.split(',')}", groupId = "${kafka.consumer.group.id.config}")
+     public void consumerTopics(String message, @Header(KafkaHeaders.RECEIVED_TOPIC) String topics)
    
-//   @KafkaListener(topics = "${kafka.consumer.topic}", groupId = "${kafka.consumer.group.id.config}")
+//  @KafkaListener(topics = "${kafka.consumer.topic}", groupId = "${kafka.consumer.group.id.config}")
 //  public void consumerTopics(String message)
 //  
    {

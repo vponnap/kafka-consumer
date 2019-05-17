@@ -24,8 +24,8 @@ public class KafkaSubscriberConfig {
     private String pubSubServers;
 
     @Value("${kafka.consumer.topic}")
-    //private String topic;
-    private List<String> topic;
+    private String[] topic;
+    //private List<String> topic;
 
     @Value("${kafka.consumer.group.id.config}")
     private String consumerGroupIdConfig;
@@ -58,7 +58,7 @@ public class KafkaSubscriberConfig {
     public Consumer<String, String> kafkaConsumer() {
         Consumer<String, String> consumer = new KafkaConsumer<>(consumerConfigs());
         System.out.println("I am in consumer config");
-         consumer.subscribe(topic);
+         //consumer.subscribe(topic);
          System.out.println(consumer.listTopics());
 //        System.out.println("Messages received" + Arrays.asList(topic));
 		return consumer;
